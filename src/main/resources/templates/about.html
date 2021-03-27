@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+<!--导航-->
+<nav id="nav" class="gird-header m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h3 class="ui header item" style="font-family: STHeiti Light">zesiar0的秘密基地</h3>
+            <div class="centered m-item item m-mobile-hide">
+                <a href="#" class="m-item item"><i class="home icon"></i>主页</a>
+                <a href="#" class="m-item item"><i class="archive icon"></i>归档</a>
+                <a href="#" class="m-item item"><i class="book icon"></i>目录</a>
+                <a href="#" class="m-item item"><i class="list icon"></i>清单</a>
+                <a href="#" class="m-item item"><i class="linkify icon"></i>友链</a>
+                <a href="#" class="m-item item"><i class="heart icon"></i>关于</a>
+            </div>
+            <div class="right menu">
+                <div class="item">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-hide" style="display: none">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container-mini m-padded-tb-big">
+    <div class="ui container">
+        <!--面包屑导航-->
+        <div class="ui orange segment">
+            <div class="ui small large breadcrumb">
+                <a href="#" class="section">网站主页</a>
+                <i class="right chevron icon divider"></i>
+                <div class="active section">关于我</div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <!--头像部分-->
+            <img class="ui centered aligned medium circular image" src="../static/images/avatar.jpg">
+            <div class="ui center aligned basic segment">
+                <h1 class="ui header m-text-name">zesiar0</h1>
+                <h3 class="ui text m-text-heavy">专注于Web安全与开发的菜狗</h3>
+                <i class="paper plane outline icon"></i> 四川 - 成都
+            </div>
+            <!--分割线-->
+            <div class="ui divider"></div>
+            <!--个人信息链接-->
+            <div class="ui basic center aligned segment m-padded-tb-mini">
+                <div class="ui horizontal link list">
+                    <div class="item">
+                        <i id="github" class="big github icon"></i>
+                        <div class="ui githubPic flowing popup transition hidden">
+                            <img src="../static/images/avatar.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i id="qq" class="big qq icon"></i>
+                        <div class="ui qqPic flowing popup transition hidden">
+                            <img src="../static/images/avatar.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i id="mail" class="big mail icon"></i>
+                        <div class="ui mailPic flowing popup transition hidden">
+                            <img src="../static/images/avatar.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分割线-->
+            <div class="ui horizontal divider">个人介绍</div>
+            <!--个人介绍内容-->
+            <div class="ui basic segment m-padded-lr">
+                <h3>个人信息</h3>
+                <p>  出生江西南昌，电子科技大学在读</p>
+                <h3>兴趣爱好</h3>
+                <p>  热爱Web安全，正在学习springboot</p>
+            </div>
+            <p class="ui grey bottom center aligned header">The End</p>
+        </div>
+    </div>
+</div>
+
+<!--底部footer-->
+<footer class="ui inverted vertical segment m-padded-tb-large">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="four wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/1.jpg" class="ui rounded image" alt="" style="width: 140px">
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系方式</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">zesiar0's blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider">
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright@2021 zesiar0</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleAttribute('m-mobile-show');
+    });
+
+    $('#github').popup({
+        popup : $('.githubPic.popup'),
+        position : 'bottom center'
+    });
+
+    $('#qq').popup({
+        popup : $('.qqPic.popup'),
+        position : 'bottom center'
+    });
+
+    $('#mail').popup({
+        popup : $('.mailPic.popup'),
+        position : 'bottom center'
+    });
+
+</script>
+</body>
+</html>
