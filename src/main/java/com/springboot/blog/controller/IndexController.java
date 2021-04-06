@@ -9,8 +9,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(){
-//        int a = 9/0;
-        System.out.println("------index------");
         return "index";
     }
 }

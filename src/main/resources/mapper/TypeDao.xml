@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.blog.dao.TypeDao">
+    <!--新增保存分类-->
+    <insert id="saveType" parameterType="com.springboot.blog.entity.Type">
+        insert into myblog.t_type values (#{id},#{name});
+    </insert>
+    <!--根据id查询分类-->
+    <select id="getType" resultType="com.springboot.blog.entity.Type">
+        select id,name from myblog.t_type where id = #{id}
+    </select>
+    <!--查询所有分类-->
+    <select id="getAllType" resultType="com.springboot.blog.entity.Type">
+        select * from myblog.t_type
+    </select>
+    <!--根据分类名称来查询-->
+    <select id="getTypeName" resultType="com.springboot.blog.entity.Type">
+        select * from myblog.t_type where name = #{name}
+    </select>
+    <!--编辑修改分类-->
+    <update id="updateType" parameterType="com.springboot.blog.entity.Type">
+        update myblog.t_type set name = #{name} where id = #{id}
+    </update>
+    <!--删除分类-->
+    <delete id="deleteType">
+        delete from myblog.t_type where id = #{id}
+    </delete>
+</mapper>
