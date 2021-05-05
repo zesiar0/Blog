@@ -52,14 +52,15 @@
   <!--中间内容-->
   <div  class="">
     <div class="ui container">
-      <form id="blog-form" action="#" method="post" class="ui form">
-        <input type="hidden" name="published">
-        <input type="hidden" name="id">
+      <form id="blog-form" action="#" th:object="${blog}" th:action="*{id}==null ? @{/admin/blogs} : @{/admin/blogs/{id}(id=*{id})}" method="post" class="ui form">
+        <input type="hidden" name="published" th:value="*{published}">
+        <input type="hidden" name="id" th:value="*{id}">
 
         <div class="required field">
           <div class="ui left labeled input">
             <div class="ui selection compact teal basic dropdown label">
-              <input type="hidden" value="原创" name="flag">
+              <!--标记原创、转载、翻译-->
+              <input type="hidden" value="原创" name="flag" th:value="*{flag}">
               <i class="dropdown icon"></i>
               <div class="text">原创</div>
               <div class="menu">
@@ -68,13 +69,15 @@
                 <div class="item" data-value="翻译">翻译</div>
               </div>
             </div>
-            <input type="text" name="title" placeholder="标题">
+            <!--博客标题-->
+            <input type="text" name="title" placeholder="标题" th:value="*{title}">
           </div>
         </div>
 
         <div class="required field">
+          <!--博客正文-->
           <div class="" id="md-content" style="z-index: 1 !important;">
-            <textarea placeholder="博客内容" name="content" style="display: none" ></textarea>
+            <textarea placeholder="博客内容" name="content" style="display: none" th:text="*{content}"></textarea>
           </div>
         </div>
 
@@ -90,7 +93,8 @@
                 <i class="dropdown icon"></i>
                 <div class="default text">分类</div>
                 <div class="menu">
-                  <div class="item" data-value="1">我的故事</div>
+                  <!--分类设置-->
+                  <div th:each="type : ${types}" class="item" data-value="1" th:data-value="$type.id" th:text="${type.name}}">我的故事</div>
                 </div>
               </div>
             </div>
@@ -99,37 +103,43 @@
           <div class="required field">
             <div class="ui left labeled input">
               <label class="ui teal basic label">首图</label>
-              <input type="text" name="firstPicture" placeholder="首图引用地址">
+              <!--首图设置-->
+              <input type="text" name="firstPicture" th:value="*{firstPicture}" placeholder="首图引用地址">
             </div>
           </div>
         </div>
 
         <div class="required field">
-          <textarea name="description" placeholder="博客描述..." maxlength="200"></textarea>
+          <!--博客描述-->
+          <textarea name="description" placeholder="博客描述..." maxlength="200" th:text="*{description}"></textarea>
         </div>
 
         <div class="inline fields">
           <div class="field">
             <div class="ui checkbox">
-              <input type="checkbox" id="recommend" name="recommend" checked class="hidden">
+              <!--推荐设置-->
+              <input type="checkbox" id="recommend" name="recommend" checked th:checked="*{recommend}" class="hidden">
               <label for="recommend">推荐</label>
             </div>
           </div>
           <div class="field">
             <div class="ui checkbox">
-              <input type="checkbox" id="shareStatement" name="shareStatement" class="hidden">
+              <!--转载声明-->
+              <input type="checkbox" id="shareStatement" name="shareStatement" th:checked="*{shareStatement}" class="hidden">
               <label for="shareStatement">转载声明</label>
             </div>
           </div>
           <div class="field">
             <div class="ui checkbox">
-              <input type="checkbox" id="appreciation" name="appreciation" class="hidden">
+              <!--赞赏设置-->
+              <input type="checkbox" id="appreciation" name="appreciation" th:checked="*{appreciation}" class="hidden">
               <label for="appreciation">赞赏</label>
             </div>
           </div>
           <div class="field">
             <div class="ui checkbox">
-              <input type="checkbox" id="commentabled" name="commentabled" class="hidden">
+              <!--评论设置-->
+              <input type="checkbox" id="commentabled" name="commentabled" th:checked="*{commentabled}" class="hidden">
               <label for="commentabled">评论</label>
             </div>
           </div>

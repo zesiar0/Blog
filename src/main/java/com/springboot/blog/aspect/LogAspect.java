@@ -40,7 +40,7 @@ public class LogAspect {
 
     @After("log()")
     public void doAfter(){
-//        logger.info("-----------doAfter-----------");
+        logger.info("-----------doAfter-----------");
     }
 
     @AfterReturning(returning = "result", pointcut = "log()")
